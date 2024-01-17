@@ -12,6 +12,8 @@ class SimpleGame:
         self.obstacles = self.generate_obstacles()
         self.generate_path()
 
+        self.display_board()
+
     def generate_stop(self):
         stop = (random.randint(0, self.width - 1), random.randint(0, self.height - 1))
         while stop == self.start:
@@ -31,6 +33,7 @@ class SimpleGame:
 
     def generate_path(self):
         x, y = self.start
+
     def display_board(self):
         for row in self.board:
             print('-'.join(row))
@@ -48,8 +51,10 @@ class SimpleGame:
 
 
 game = SimpleGame(5, 5)
-game.display_board()
 
+# Test ruchu
+game.move('right')
+game.display_board()
 
 # Zapis planszy do pliku
 with open('board.txt', 'w') as file:
